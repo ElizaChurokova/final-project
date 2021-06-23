@@ -30,10 +30,7 @@ public class MedInstitution {
     private String address;
     @Column(name = "contact_number")
     private Integer contactNumber;
-    @ManyToMany(mappedBy = "medPersonalDetailMedInstitutionsOme")
-    private List<MedPersonalDetails> MedPersonalDetailsOne;
-    @ManyToMany(mappedBy = "medPersonalDetailMedInstitutionsTwo")
-    private List<MedPersonalDetails> MedPersonalDetailsTwo;
+
 
 
 }

@@ -17,6 +17,7 @@ public class MedInstitutionTypeServiceImpl implements MedInstitutionTypeService 
 
     @Override
     public MedInstitutionType findById(Long id) {
+
         return medInstitutionTypeRepo.findById(id).orElse(null);
     }
 }

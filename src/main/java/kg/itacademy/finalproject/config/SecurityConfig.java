@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/blood-group").permitAll()
                 .antMatchers("/api/med-institution").permitAll()
                 .antMatchers("/api/lab-test-result").permitAll()
+                .antMatchers("api/med-personal-details").permitAll()
                 .and().httpBasic().and().logout().and().formLogin();
     }
 
