@@ -14,7 +14,7 @@ public class DiseaseHistoryModel {
     private Long visitTypeId;
     private Date dateOfVisit;
     private Long directionId;
-    private Long personalId;
+    private Long medPersonalId;
     private String complaintDescription;
     private String doctorExamDescription;
     private String diagnosis;
