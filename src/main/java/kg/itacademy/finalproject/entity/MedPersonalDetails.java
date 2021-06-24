@@ -29,7 +29,5 @@ public class MedPersonalDetails {
     @ManyToMany
     private List<MedInstitution> MedInstitutionsOne;
 
-    @ManyToMany
-    private List<MedInstitution> MedInstitutionsTwo;
 
 }

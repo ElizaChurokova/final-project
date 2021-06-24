@@ -12,10 +12,7 @@ public class MedPersonalDetailsController {
     private MedPersonalDetailsService medPersonalDetailsService;
     @GetMapping("/{id}")
     public MedPersonalDetails findByMedPersonalDetailsOneId(@PathVariable Long id){
-        return (MedPersonalDetails) medPersonalDetailsService.findByMedPersonalDetailsOneId(id);}
-    @GetMapping("/{id}")
-    public MedPersonalDetails findByMedPersonalDetailsTwoId(@PathVariable Long id){
-        return (MedPersonalDetails) medPersonalDetailsService.findByMedPersonalDetailsTwoId(id);}
+        return medPersonalDetailsService.findByMedPersonalDetailsOneId(id);}
     @PostMapping
     public MedPersonalDetails save(@RequestBody MedPersonalDetails medPersonalDetails){
         return medPersonalDetailsService.save(medPersonalDetails);

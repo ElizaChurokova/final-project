@@ -17,12 +17,8 @@ public class MedPersonalDetailsServiceImpl implements MedPersonalDetailsService 
     }
 
     @Override
-    public List<MedInstitution> findByMedPersonalDetailsOneId(Long id) {
-        return (List<MedInstitution>) medPersonalDetailsRepo.findById(id).orElse(null);
+    public MedPersonalDetails findByMedPersonalDetailsOneId(Long id) {
+        return medPersonalDetailsRepo.findById(id).orElse(null);
     }
 
-    @Override
-    public List<MedInstitution> findByMedPersonalDetailsTwoId(Long id) {
-        return (List<MedInstitution>) medPersonalDetailsRepo.findById(id).orElse(null);
-    }
 }
