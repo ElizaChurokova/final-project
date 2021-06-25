@@ -27,7 +27,7 @@ public class MedPersonalDetails {
     private Direction direction;
 
     @ManyToMany
-    private List<MedInstitution> MedInstitutionsOne;
-
+    @JoinColumn(name = "med_institution_id")
+    private List<MedInstitution> medInstitutions;
 
 }

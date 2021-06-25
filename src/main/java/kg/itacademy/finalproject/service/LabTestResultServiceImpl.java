@@ -1,6 +1,7 @@
 package kg.itacademy.finalproject.service;
 
 import kg.itacademy.finalproject.entity.LabTestResult;
+import kg.itacademy.finalproject.entity.MedInstitution;
 import kg.itacademy.finalproject.entity.User;
 import kg.itacademy.finalproject.model.LabTestResultModel;
 import kg.itacademy.finalproject.repository.LabTestResultRepo;
@@ -13,6 +14,8 @@ public class LabTestResultServiceImpl implements LabTestResultService {
     private LabTestResultRepo labTestResultRepo;
     @Autowired
     private UserService userService;
+    @Autowired
+    private MedInstitutionService medInstitutionService;
     @Override
     public LabTestResult save(LabTestResult labTestResult) {
         return labTestResultRepo.save(labTestResult);
@@ -22,6 +25,13 @@ public class LabTestResultServiceImpl implements LabTestResultService {
     public LabTestResult save(LabTestResultModel labTestResultModel) {
         LabTestResult labTestResult = new LabTestResult();
         labTestResult.setResultDescription(labTestResultModel.getResultDescription());
+
+        MedInstitution medInstitution = medInstitutionService.findById(labTestResultModel.getMedInstitutionId());
+        {
+            if(medInstitution == null) throw new IllegalArgumentException("Мед учреждение с ID " + labTestResultModel.getMedInstitutionId() + "не существует");
+            labTestResult.setMedInstitution(medInstitution);
+        }
+
         User user = userService.findById(labTestResultModel.getUserId());
         {
             if(user == null) throw new IllegalArgumentException("Пользователь с ID " + labTestResultModel.getUserId() + " не существует. ");

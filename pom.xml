@@ -51,7 +51,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    <repositories>
+        <repository>
+            <id>local-maven-repository</id>
+            <url>file:///${project.basedir}/maven-repository</url>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>

@@ -26,7 +26,6 @@ public class User {
     private Integer status;
     @Column(name = "full_name", nullable = false)
     private String fullName;
-    //
     @ManyToOne
     @JoinColumn(name = "users_role_id")
     private UserRole userRole;

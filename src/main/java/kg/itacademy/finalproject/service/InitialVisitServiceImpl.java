@@ -52,7 +52,7 @@ public class InitialVisitServiceImpl implements InitialVisitService {
             initialVisit.setDirection(direction);
         }
 
-        MedPersonalDetails medPersonalDetails = medPersonalDetailsService.findByMedPersonalDetailsOneId(initialVisitModel.getMedPersonalId());
+        MedPersonalDetails medPersonalDetails = medPersonalDetailsService.findByMedPersonalDetailsId(initialVisitModel.getMedPersonalId());
         {
             if (medPersonalDetails == null)
                 throw new IllegalArgumentException("Мед персонал с ID " + initialVisitModel.getMedPersonalId() + " не сушествует");

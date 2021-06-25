@@ -57,7 +57,7 @@ public class AdditionalVisitServiceImpl implements AdditionalVisitService {
             additionalVisit.setDirection(direction);
         }
 
-        MedPersonalDetails medPersonalDetails = medPersonalDetailsService.findByMedPersonalDetailsOneId(additionalVisitModel.getMedPersonalId());
+        MedPersonalDetails medPersonalDetails = medPersonalDetailsService.findByMedPersonalDetailsId(additionalVisitModel.getMedPersonalId());
         {
             if (medPersonalDetails == null)
                 throw new IllegalArgumentException("Мед персонал с ID " + additionalVisitModel.getMedPersonalId() + " не сушествует");

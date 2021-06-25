@@ -20,27 +20,10 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder;
 
     @Override
-    public User save(User user) {
-        return userRepo.save(user);
-    }
-
-    /*
-        @Override
-        public User save(User user) {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-            user = userRepo.save(user);
-            UserRole userRole = new UserRole();
-            userRole.setRoleName("ROLE_USER");
-            userRole.setUser(user);
-            userRole = userRoleService.save(userRole);
-            return user;
-        }
-    */
-    @Override
     public User save(UserCreateModel userCreateModel) {
         User user = new User();
         user.setLogin(userCreateModel.getLogin());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(passwordEncoder.encode(userCreateModel.getPassword()));
         user.setStatus(userCreateModel.getStatus());
         user.setFullName(userCreateModel.getFullName());
         UserRole userRole = userRoleService.findById(userCreateModel.getUserRoleId());
