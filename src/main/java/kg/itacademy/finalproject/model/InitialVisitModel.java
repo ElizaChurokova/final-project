@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class DiseaseHistoryModel {
+public class InitialVisitModel {
     private Long userId;
     private Long visitTypeId;
     private Date dateOfVisit;
@@ -20,6 +20,6 @@ public class DiseaseHistoryModel {
     private String diagnosis;
     private Long todoLabTestId;
     private String todoHavePills;
-    private Long medInstitionId;
+    private Long medInstitutionId;
 
 }

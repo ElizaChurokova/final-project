@@ -18,10 +18,10 @@ public class LabTestResult {
     @Column(name = "result_description")
     private String resultDescription;
     @ManyToOne
-    @JoinColumn(name = "medInstitutionId")
+    @JoinColumn(name = "med_institution_id")
     private MedInstitution medInstitution;
     @ManyToOne
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "users_id")
     private User user;
 
 }
