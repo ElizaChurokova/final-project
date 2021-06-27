@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class MedPersonalDetailsModel {
     private Long userId;
     private Long directionId;
-    private Long medInstructionId;
+    private Long medInstitutionId;
 }

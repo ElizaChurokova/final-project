@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -42,11 +41,9 @@ public class MedCard {
     @JoinColumn(name = "vaccine_id")
     private List<Vaccine> vaccines;
     @ManyToOne
-    @JoinColumn(name = "initial_visit_id")
-    private InitialVisit initialVisit;
-    @ManyToOne
-    @JoinColumn(name = "additional_visit_id")
-    private AdditionalVisit additionalVisit;
+    @JoinColumn(name = "visit_id")
+    private Visit visit;
+
 
 
 

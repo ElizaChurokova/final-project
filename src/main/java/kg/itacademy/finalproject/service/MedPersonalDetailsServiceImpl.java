@@ -35,8 +35,8 @@ public class MedPersonalDetailsServiceImpl implements MedPersonalDetailsService 
             medPersonalDetails.setDirection(direction);
         }
 
-        MedInstitution medInstitution = medInstitutionService.findById(medPersonalDetailsModel.getMedInstructionId()); {
-            if(medInstitution == null) throw new IllegalArgumentException("Медицинское учреждение с ID " + medPersonalDetailsModel.getMedInstructionId() + " не существует");
+        MedInstitution medInstitution = medInstitutionService.findById(medPersonalDetailsModel.getMedInstitutionId()); {
+            if(medInstitution == null) throw new IllegalArgumentException("Медицинское учреждение с ID " + medPersonalDetailsModel.getMedInstitutionId() + " не существует");
             List<MedInstitution> medInstitutions = new ArrayList<>();
             medPersonalDetails.setMedInstitutions(medInstitutions);
         }

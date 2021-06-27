@@ -9,9 +9,8 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InitialVisitModel {
+public class VisitModel {
     private Long userId;
-    private Long visitTypeId;
     private Date dateOfVisit;
     private Long directionId;
     private Long medPersonalId;

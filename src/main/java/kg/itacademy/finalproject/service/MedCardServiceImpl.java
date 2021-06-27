@@ -24,9 +24,8 @@ public class MedCardServiceImpl implements MedCardService {
     @Autowired
     private VaccineService vaccineService;
     @Autowired
-    private InitialVisitService initialVisitService;
-    @Autowired
-    private AdditionalVisitService additionalVisitService;
+    private VisitService visitService;
+
 
 
     @Override
@@ -67,15 +66,11 @@ public class MedCardServiceImpl implements MedCardService {
              List<Vaccine> list = new ArrayList<>();
              medCard.setVaccines(list); }
 
-     InitialVisit initialVisit = initialVisitService.findById(medCardModel.getInitialVisitId());{
-          if(initialVisit == null)
-              throw new IllegalArgumentException("Первичный визит с ID " + medCardModel.getInitialVisitId() + " не существует");
-              medCard.setInitialVisit(initialVisit); }
+     Visit visit = visitService.findById(medCardModel.getVisitId());{
+          if(visit == null)
+              throw new IllegalArgumentException("Первичный визит с ID " + medCardModel.getVisitId() + " не существует");
+              medCard.setVisit(visit); }
 
-     AdditionalVisit additionalVisit = additionalVisitService.findById(medCardModel.getAdditionalVisitId());{
-          if(additionalVisit == null)
-              throw new IllegalArgumentException("Вторичный визит с ID " + medCardModel.getAdditionalVisitId() + " не существует");
-              medCard.setAdditionalVisit(additionalVisit);}
 
         return medCardRepo.save(medCard);
     }

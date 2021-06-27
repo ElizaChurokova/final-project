@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         UserRole userRole = userRoleService.findById(userCreateModel.getUserRoleId());
         {
             if(userRole == null)
-                throw new IllegalArgumentException("User Role  с ID " + userCreateModel.getUserRoleId() + " не сушествует");
+                throw new IllegalArgumentException("User Role  с таким ID " + userCreateModel.getUserRoleId() + " не сушествует");
                 user.setUserRole(userRole);
         }
 

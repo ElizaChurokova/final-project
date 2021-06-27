@@ -10,22 +10,18 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "initial_visit")
+@Table(name = "visit")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class InitialVisit {
+public class Visit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "users_id")
     private User user;
-
-    @ManyToOne
-    @JoinColumn(name = "visit_type_id")
-    private VisitType visitType;
 
     @Column(name = "date_of_visit")
     private Date dateOfVisit;

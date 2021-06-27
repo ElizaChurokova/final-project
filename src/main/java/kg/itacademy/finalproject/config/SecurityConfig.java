@@ -32,15 +32,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/vaccine").permitAll()
                 .antMatchers("/api/direction").permitAll()
                 .antMatchers("/api/labtest").permitAll()
-                .antMatchers("/api/visit-type").permitAll()
                 .antMatchers("/api/chronic-disease").permitAll()
                 .antMatchers("/api/allergy").permitAll()
                 .antMatchers("/api/blood-group").permitAll()
                 .antMatchers("/api/med-institution").permitAll()
                 .antMatchers("/api/lab-test-result").permitAll()
                 .antMatchers("api/med-personal-details").permitAll()
-                .antMatchers("/api/initial-visit").permitAll()
-                .antMatchers("/api/additional-visit").permitAll()
+                .antMatchers("/api/visit").permitAll()
                 .antMatchers("/api/med-card").permitAll()
                 .and().httpBasic().and().logout().and().formLogin();
     }
@@ -50,6 +48,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication().dataSource(dataSource)
         .usersByUsernameQuery("select login, password, status from users where login=?")
         .authoritiesByUsernameQuery("select u.login, ur.role_name from users_role ur join users u on ur.user_id = u.id where u.login = ?");
+    }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/v2/api-docs", "/configuration/ui", "/swagger-resources/**", "/configuration/**", "/swagger-ui.html/**", "/webjars/**");
     }
 
     @Bean

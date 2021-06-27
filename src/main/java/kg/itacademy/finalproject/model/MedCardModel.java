@@ -24,6 +24,5 @@ public class MedCardModel {
     private Long allergyId;
     private Long chronicDiseaseId;
     private Long vaccineId;
-    private Long initialVisitId;
-    private Long additionalVisitId;
-}
+    private Long visitId;
+  }
