@@ -6,6 +6,8 @@ import kg.itacademy.finalproject.service.MedInstitutionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/med-institution")
 public class MedInstitutionController {
@@ -16,4 +18,6 @@ public class MedInstitutionController {
     @PostMapping
     public MedInstitution save(@RequestBody MedInstitutionModel medInstitutionModel) {
         return medInstitutionService.save(medInstitutionModel);}
+    @GetMapping
+    public List<MedInstitution> findAll(){return medInstitutionService.findAll();}
 }

@@ -80,4 +80,9 @@ public class VisitServiceImpl implements VisitService {
     public Visit findById(Long id) {
         return visitRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public List<Visit> findAll() {
+        return visitRepo.findAll();
+    }
 }

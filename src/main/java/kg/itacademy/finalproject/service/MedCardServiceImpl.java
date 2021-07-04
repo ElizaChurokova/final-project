@@ -4,6 +4,7 @@ import kg.itacademy.finalproject.entity.*;
 import kg.itacademy.finalproject.model.MedCardModel;
 import kg.itacademy.finalproject.repository.MedCardRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -78,5 +79,11 @@ public class MedCardServiceImpl implements MedCardService {
     @Override
     public MedCard findById(Long id) {
         return medCardRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<MedCard> findAll() {
+        System.out.println("Дайте медкарты для " + SecurityContextHolder.getContext().getAuthentication().getName());
+        return medCardRepo.findAll();
     }
 }

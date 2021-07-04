@@ -3,7 +3,10 @@ package kg.itacademy.finalproject.service;
 import kg.itacademy.finalproject.entity.UserRole;
 import kg.itacademy.finalproject.repository.UserRoleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
@@ -31,4 +34,10 @@ public class UserRoleServiceImpl implements UserRoleService {
     public UserRole findById(Long id) {
         return userRoleRepo.findById(id).orElse(null);
     }
+
+    @Override
+    public List<UserRole> findAll() {
+        System.out.println("Дайте ролей " + SecurityContextHolder.getContext().getAuthentication().getName());
+        return userRoleRepo.findAll();
+           }
 }

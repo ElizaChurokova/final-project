@@ -9,6 +9,8 @@ import java.util.List;
 public interface MedPersonalDetailsService {
     MedPersonalDetails save(MedPersonalDetailsModel medPersonalDetailsModel);
     MedPersonalDetails findByMedPersonalDetailsId(Long id);
+    List<MedPersonalDetails> findAll();
+
 
 
 

@@ -1,6 +1,7 @@
 package kg.itacademy.finalproject.controller;
 
 import kg.itacademy.finalproject.entity.User;
+import kg.itacademy.finalproject.model.AuthModel;
 import kg.itacademy.finalproject.model.UserCreateModel;
 import kg.itacademy.finalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     @Autowired
     private UserService userService;
-
-    @PostMapping
+    @PostMapping("/sign-up")
     public User save(@RequestBody UserCreateModel userCreateModel){
         return userService.save(userCreateModel);
     }
+    @PostMapping("/sign-in")
+    public String getToken(@RequestBody AuthModel authModel){
+        return userService.getTokenByAuthModel(authModel);
+    }
+
 }

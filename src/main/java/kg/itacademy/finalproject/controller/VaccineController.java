@@ -5,6 +5,8 @@ import kg.itacademy.finalproject.service.VaccineService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/vaccine")
 public class VaccineController {
@@ -17,5 +19,7 @@ public class VaccineController {
     public Vaccine save(@RequestBody Vaccine vaccine){
         return vaccineService.save(vaccine);
     }
+    @GetMapping
+    public List<Vaccine> findAll(){return vaccineService.findAll();}
 
 }

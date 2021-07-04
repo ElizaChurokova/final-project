@@ -5,7 +5,10 @@ import kg.itacademy.finalproject.entity.MedInstitutionType;
 import kg.itacademy.finalproject.model.MedInstitutionModel;
 import kg.itacademy.finalproject.repository.MedInstitutionRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MedInstitutionServiceImpl implements MedInstitutionService {
@@ -36,5 +39,11 @@ public class MedInstitutionServiceImpl implements MedInstitutionService {
     @Override
     public MedInstitution findById(Long id) {
         return medInstitutionRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<MedInstitution> findAll() {
+        System.out.println("Дайте список мед учреждений для " + SecurityContextHolder.getContext().getAuthentication().getName());
+        return medInstitutionRepo.findAll();
     }
 }

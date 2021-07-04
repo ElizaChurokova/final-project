@@ -5,6 +5,8 @@ import kg.itacademy.finalproject.service.AllergyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/allergy")
 public class AllergyController {
@@ -14,4 +16,6 @@ public class AllergyController {
     public Allergy findById(@PathVariable Long id){return allergyService.findById(id);}
     @PostMapping
     public Allergy save(@RequestBody Allergy allergy){return allergyService.save(allergy);}
+    @GetMapping
+    public List<Allergy> findAll(){return allergyService.findAll();}
 }

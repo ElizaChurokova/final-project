@@ -6,7 +6,10 @@ import kg.itacademy.finalproject.entity.User;
 import kg.itacademy.finalproject.model.LabTestResultModel;
 import kg.itacademy.finalproject.repository.LabTestResultRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class LabTestResultServiceImpl implements LabTestResultService {
@@ -43,5 +46,11 @@ public class LabTestResultServiceImpl implements LabTestResultService {
     @Override
     public LabTestResult findById(Long id) {
         return labTestResultRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<LabTestResult> findAll() {
+        System.out.println("Дайте результаты всех лабораторных анализов для " + SecurityContextHolder.getContext().getAuthentication().getName());
+        return labTestResultRepo.findAll();
     }
 }

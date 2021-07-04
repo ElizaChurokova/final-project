@@ -6,6 +6,8 @@ import kg.itacademy.finalproject.service.DirectionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/direction")
 public class DirectionController {
@@ -15,4 +17,6 @@ public class DirectionController {
     public Direction findById(@PathVariable Long id){ return directionService.findById(id); }
     @PostMapping
     public Direction save(@RequestBody Direction direction){ return directionService.save(direction);}
+    @GetMapping
+    public List<Direction>findAll(){return directionService.findAll();}
 }

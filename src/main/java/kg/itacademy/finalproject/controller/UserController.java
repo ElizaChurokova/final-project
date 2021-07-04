@@ -1,6 +1,7 @@
 package kg.itacademy.finalproject.controller;
 
 import kg.itacademy.finalproject.entity.User;
+import kg.itacademy.finalproject.model.UserCreateModel;
 import kg.itacademy.finalproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,20 @@ public class UserController {
     public String getName(Principal principal){
         return principal.getName();
     }
+    @PostMapping
+    public User save(@RequestBody UserCreateModel userCreateModel){
+        return userService.save(userCreateModel);
+    }
+    @GetMapping("/find/{login}")
+    public User findByLogin(@PathVariable String login){
+        return userService.findByLogin(login);
+    }
+    @GetMapping("/ban/{id}")
+    public User banById(@PathVariable Long id) {return userService.banById(id);}
+    @GetMapping("/unban/{id}")
+    public User unbanById(@PathVariable Long id) {return userService.unbanById(id);}
+    @GetMapping("get-status/{status}")
+    public List<User> findAllByStatus(Long status){return userService.findAllByStatus(status);}
 
 
 

@@ -7,6 +7,7 @@ import kg.itacademy.finalproject.entity.User;
 import kg.itacademy.finalproject.model.MedPersonalDetailsModel;
 import kg.itacademy.finalproject.repository.MedPersonalDetailsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -47,6 +48,12 @@ public class MedPersonalDetailsServiceImpl implements MedPersonalDetailsService 
     @Override
     public MedPersonalDetails findByMedPersonalDetailsId(Long id) {
         return medPersonalDetailsRepo.findById(id).orElse(null);
+    }
+
+    @Override
+    public List<MedPersonalDetails> findAll() {
+        System.out.println("Дайте список мед работников для " + SecurityContextHolder.getContext().getAuthentication().getName());
+        return medPersonalDetailsRepo.findAll();
     }
 
 }

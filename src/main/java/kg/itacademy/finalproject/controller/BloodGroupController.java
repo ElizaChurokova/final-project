@@ -5,6 +5,8 @@ import kg.itacademy.finalproject.service.BloodGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/blood-group")
 public class BloodGroupController {
@@ -14,4 +16,6 @@ public class BloodGroupController {
     public BloodGroup findById(@PathVariable Long id){return bloodGroupService.findById(id);}
     @PostMapping
     public BloodGroup save(@RequestBody BloodGroup bloodGroup){return bloodGroupService.save(bloodGroup);}
+    @GetMapping
+    public List<BloodGroup> findAll(){return bloodGroupService.findAll();}
 }

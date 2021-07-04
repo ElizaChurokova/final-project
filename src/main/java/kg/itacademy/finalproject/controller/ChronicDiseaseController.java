@@ -5,6 +5,8 @@ import kg.itacademy.finalproject.service.ChronicDiseaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/chronic-disease")
 public class ChronicDiseaseController {
@@ -14,4 +16,6 @@ public class ChronicDiseaseController {
     public ChronicDisease findById(@PathVariable Long id){return chronicDiseaseService.findById(id);}
     @PostMapping
     public ChronicDisease save(@RequestBody ChronicDisease chronicDisease){return chronicDiseaseService.save(chronicDisease);}
+    @GetMapping
+    public List<ChronicDisease> findAll(){return chronicDiseaseService.findAll();}
 }
