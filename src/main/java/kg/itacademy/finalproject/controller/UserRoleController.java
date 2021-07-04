@@ -22,4 +22,6 @@ public class UserRoleController {
     public List<UserRole> findAll(){
         return userRoleService.findAll();
     }
+    @GetMapping("/{id}")
+    public UserRole findById(@PathVariable Long id){return userRoleService.findById(id);}
 }

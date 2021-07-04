@@ -42,7 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .and().httpBasic().and().logout().and().formLogin();
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/api/auth/**").hasAnyRole("DOCTOR", "ADMIN", "MEDADMIN")
+                .antMatchers("/api/auth/sign-in").permitAll()
+                .antMatchers("/api/auth/sign-up").hasAnyRole("DOCTOR", "ADMIN", "MEDADMIN")
                 .antMatchers("/api/user/**").hasAnyRole("DOCTOR", "ADMIN", "MEDADMIN")
                 .antMatchers("/api/user/find/{login}").hasRole("PATIENT")
                 .antMatchers("/api/user/ban/{id}").hasRole("DOCTOR")
