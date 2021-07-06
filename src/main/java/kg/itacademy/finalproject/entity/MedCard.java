@@ -40,9 +40,9 @@ public class MedCard {
     @ManyToMany
     @JoinColumn(name = "vaccine_id")
     private List<Vaccine> vaccines;
-    @ManyToOne
-    @JoinColumn(name = "visit_id")
-    private Visit visit;
+//    @ManyToOne
+//    @JoinColumn(name = "visit_id")
+//    private Visit visit;
 
 
 

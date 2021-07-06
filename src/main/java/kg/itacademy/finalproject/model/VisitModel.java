@@ -20,5 +20,6 @@ public class VisitModel {
     private Long todoLabTestId;
     private String todoHavePills;
     private Long medInstitutionId;
+    private Long medCardId;
 
 }

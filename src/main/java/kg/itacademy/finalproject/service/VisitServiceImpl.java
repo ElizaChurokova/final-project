@@ -23,6 +23,8 @@ public class VisitServiceImpl implements VisitService {
     private MedInstitutionService medInstitutionService;
     @Autowired
     private LabtestService labtestService;
+    @Autowired
+    private MedCardService medCardService;
 
 
     @Override
@@ -73,6 +75,10 @@ public class VisitServiceImpl implements VisitService {
                 throw new IllegalArgumentException("Медицинское учреждение с ID "  + visitModel.getMedInstitutionId() + " не существует.");
             visit.setMedInstitution(medInstitution);
         }
+        MedCard medCard = medCardService.findById(visitModel.getMedCardId());{
+            if(medCard == null)
+                throw new IllegalArgumentException("Медкарта с ID " + visitModel.getMedCardId() + "не существует");
+        }
         return visitRepo.save(visit);
     }
 
@@ -84,5 +90,10 @@ public class VisitServiceImpl implements VisitService {
     @Override
     public List<Visit> findAll() {
         return visitRepo.findAll();
+    }
+
+    @Override
+    public List<Visit> findAllByMedCard_Id(Long medCardId) {
+        return visitRepo.findAllByMedCard_Id(medCardId);
     }
 }

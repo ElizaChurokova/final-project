@@ -71,8 +71,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("api/med-personal-details/**").hasAnyRole("MEDADMIN", "ADMIN", "PATIENT")
                 .antMatchers("/api/visit").hasRole("DOCTOR")
                 .antMatchers("/api/visit/**").permitAll()
+                .antMatchers("/api/visit/{medcard_id}").permitAll()
                 .antMatchers("/api/med-card").hasAnyRole("MEDADMIN", "DOCTOR")
+                .antMatchers("/api/med-card/find-by-user-id/{id}").permitAll()
                 .antMatchers("/api/med-card/**").permitAll()
+
                 .and().httpBasic().and().logout().and().formLogin();
     }
 

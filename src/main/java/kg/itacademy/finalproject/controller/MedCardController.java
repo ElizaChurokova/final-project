@@ -19,4 +19,6 @@ public class MedCardController {
     public MedCard save(@RequestBody MedCardModel medCardModel) {return medCardService.save(medCardModel);}
     @GetMapping
     public List<MedCard>findAll(){return medCardService.findAll();}
+    @GetMapping("/find-by-user-id/{id}")
+    public MedCard findByUser_Id(@PathVariable Long id){return medCardService.findByUser_Id(id);}
 }

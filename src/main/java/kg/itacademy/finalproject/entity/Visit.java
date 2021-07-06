@@ -48,7 +48,9 @@ public class Visit {
     @ManyToOne
     @JoinColumn(name = "med_institution_id")
     private MedInstitution medInstitution;
-
+    @ManyToOne
+    @JoinColumn(name = "med_card_id")
+    private MedCard medCard;
 
 
 }

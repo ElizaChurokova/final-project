@@ -9,5 +9,6 @@ public interface VisitService {
     Visit save(VisitModel visitModel);
     Visit findById(Long id);
     List<Visit>findAll();
+    List<Visit> findAllByMedCard_Id(Long medCardId);
 
 }

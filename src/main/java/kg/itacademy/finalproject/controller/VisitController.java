@@ -1,5 +1,6 @@
 package kg.itacademy.finalproject.controller;
 
+import kg.itacademy.finalproject.entity.MedCard;
 import kg.itacademy.finalproject.entity.Visit;
 import kg.itacademy.finalproject.model.VisitModel;
 import kg.itacademy.finalproject.service.VisitService;
@@ -19,5 +20,7 @@ public class VisitController {
     public Visit save(@RequestBody VisitModel visitModel){return visitService.save(visitModel);}
     @GetMapping
     public List<Visit>findAll(){return visitService.findAll();}
+    @GetMapping("/{medcard_id}")
+    public List<Visit> findByMedcard_id(@PathVariable Long medcard_id){return visitService.findAllByMedCard_Id(medcard_id);}
 
 }

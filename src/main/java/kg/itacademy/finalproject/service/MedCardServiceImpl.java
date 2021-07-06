@@ -67,10 +67,10 @@ public class MedCardServiceImpl implements MedCardService {
              List<Vaccine> list = new ArrayList<>();
              medCard.setVaccines(list); }
 
-     Visit visit = visitService.findById(medCardModel.getVisitId());{
-          if(visit == null)
-              throw new IllegalArgumentException("Первичный визит с ID " + medCardModel.getVisitId() + " не существует");
-              medCard.setVisit(visit); }
+//     Visit visit = visitService.findById(medCardModel.getVisitId());{
+//          if(visit == null)
+//              throw new IllegalArgumentException("Первичный визит с ID " + medCardModel.getVisitId() + " не существует");
+//              medCard.setVisit(visit); }
 
 
         return medCardRepo.save(medCard);
@@ -85,5 +85,10 @@ public class MedCardServiceImpl implements MedCardService {
     public List<MedCard> findAll() {
         System.out.println("Дайте медкарты для " + SecurityContextHolder.getContext().getAuthentication().getName());
         return medCardRepo.findAll();
+    }
+
+    @Override
+    public MedCard findByUser_Id(Long userId) {
+        return medCardRepo.findByUser_Id(userId);
     }
 }
