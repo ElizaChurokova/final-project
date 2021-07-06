@@ -7,4 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface MedCardRepo extends JpaRepository<MedCard, Long> {
     MedCard findByUser_Id(Long userId);
+
 }

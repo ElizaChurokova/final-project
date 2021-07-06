@@ -10,4 +10,5 @@ public interface MedCardService {
     MedCard findById(Long id);
     List<MedCard> findAll();
     MedCard findByUser_Id(Long userId);
+
 }

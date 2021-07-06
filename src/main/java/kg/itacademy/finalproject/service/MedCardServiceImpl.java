@@ -91,4 +91,6 @@ public class MedCardServiceImpl implements MedCardService {
     public MedCard findByUser_Id(Long userId) {
         return medCardRepo.findByUser_Id(userId);
     }
+
+
 }
