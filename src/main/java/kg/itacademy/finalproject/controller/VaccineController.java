@@ -19,7 +19,7 @@ public class VaccineController {
     public Vaccine save(@RequestBody Vaccine vaccine){
         return vaccineService.save(vaccine);
     }
-    @GetMapping
+    @GetMapping("/find-all")
     public List<Vaccine> findAll(){return vaccineService.findAll();}
 
 }

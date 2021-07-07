@@ -17,6 +17,6 @@ public class LabTestResultController {
     public LabTestResult findById(@PathVariable Long id){return labTestResultService.findById(id);}
     @PostMapping
     public LabTestResult save(@RequestBody LabTestResultModel labTestResultModel){return labTestResultService.save(labTestResultModel);}
-    @GetMapping
+    @GetMapping("/find-all")
     public List<LabTestResult> findAll(){return labTestResultService.findAll();}
 }

@@ -21,6 +21,6 @@ public class MedInstitutionTypeController {
     public MedInstitutionType save(@RequestBody MedInstitutionType medInstitutionType){
         return medInstitutionTypeService.save(medInstitutionType);
     }
-    @GetMapping
+    @GetMapping("/find-all")
     public List<MedInstitutionType> findAll(){return medInstitutionTypeService.findAll();}
 }

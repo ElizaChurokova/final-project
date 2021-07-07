@@ -18,6 +18,6 @@ public class MedInstitutionController {
     @PostMapping
     public MedInstitution save(@RequestBody MedInstitutionModel medInstitutionModel) {
         return medInstitutionService.save(medInstitutionModel);}
-    @GetMapping
+    @GetMapping("/find-all")
     public List<MedInstitution> findAll(){return medInstitutionService.findAll();}
 }

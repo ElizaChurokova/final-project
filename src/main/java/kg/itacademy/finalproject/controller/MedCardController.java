@@ -17,7 +17,7 @@ public class MedCardController {
     public MedCard findById(@PathVariable Long id) {return medCardService.findById(id);}
     @PostMapping
     public MedCard save(@RequestBody MedCardModel medCardModel) {return medCardService.save(medCardModel);}
-    @GetMapping
+    @GetMapping("/find-all")
     public List<MedCard>findAll(){return medCardService.findAll();}
     @GetMapping("/find-by-user-id/{id}")
     public MedCard findByUser_Id(@PathVariable Long id){return medCardService.findByUser_Id(id);}

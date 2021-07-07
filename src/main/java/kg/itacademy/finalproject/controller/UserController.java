@@ -14,7 +14,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService userService;
-    @GetMapping
+    @GetMapping("/find-all")
     public List<User> findAll(){
         return userService.findAll();
     }

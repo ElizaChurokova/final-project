@@ -18,7 +18,7 @@ public class VisitController {
     public Visit findById(@PathVariable Long id){return visitService.findById(id);}
     @PostMapping
     public Visit save(@RequestBody VisitModel visitModel){return visitService.save(visitModel);}
-    @GetMapping
+    @GetMapping("/find-all")
     public List<Visit>findAll(){return visitService.findAll();}
     @GetMapping("/medcard/{medcard_id}")
     public List<Visit> findByMedcard_id(@PathVariable Long medcard_id){return visitService.findAllByMedCard_Id(medcard_id);}

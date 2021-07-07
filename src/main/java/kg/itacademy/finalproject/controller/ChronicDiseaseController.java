@@ -16,6 +16,6 @@ public class ChronicDiseaseController {
     public ChronicDisease findById(@PathVariable Long id){return chronicDiseaseService.findById(id);}
     @PostMapping
     public ChronicDisease save(@RequestBody ChronicDisease chronicDisease){return chronicDiseaseService.save(chronicDisease);}
-    @GetMapping
+    @GetMapping("/find-all")
     public List<ChronicDisease> findAll(){return chronicDiseaseService.findAll();}
 }

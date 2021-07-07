@@ -67,10 +67,6 @@ public class MedCardServiceImpl implements MedCardService {
              List<Vaccine> list = new ArrayList<>();
              medCard.setVaccines(list); }
 
-//     Visit visit = visitService.findById(medCardModel.getVisitId());{
-//          if(visit == null)
-//              throw new IllegalArgumentException("Первичный визит с ID " + medCardModel.getVisitId() + " не существует");
-//              medCard.setVisit(visit); }
 
 
         return medCardRepo.save(medCard);

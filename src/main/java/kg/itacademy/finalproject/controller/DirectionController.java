@@ -17,6 +17,6 @@ public class DirectionController {
     public Direction findById(@PathVariable Long id){ return directionService.findById(id); }
     @PostMapping
     public Direction save(@RequestBody Direction direction){ return directionService.save(direction);}
-    @GetMapping
+    @GetMapping("/find-all")
     public List<Direction>findAll(){return directionService.findAll();}
 }

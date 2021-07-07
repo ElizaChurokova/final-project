@@ -16,6 +16,6 @@ public class BloodGroupController {
     public BloodGroup findById(@PathVariable Long id){return bloodGroupService.findById(id);}
     @PostMapping
     public BloodGroup save(@RequestBody BloodGroup bloodGroup){return bloodGroupService.save(bloodGroup);}
-    @GetMapping
+    @GetMapping("/find-all")
     public List<BloodGroup> findAll(){return bloodGroupService.findAll();}
 }

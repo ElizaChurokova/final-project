@@ -18,7 +18,7 @@ public class UserRoleController {
     public UserRole save(@RequestBody UserRole userRole){
        return userRoleService.save(userRole);
     }
-    @GetMapping
+    @GetMapping("/find-all")
     public List<UserRole> findAll(){
         return userRoleService.findAll();
     }

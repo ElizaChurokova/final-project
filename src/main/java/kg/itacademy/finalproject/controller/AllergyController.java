@@ -16,6 +16,6 @@ public class AllergyController {
     public Allergy findById(@PathVariable Long id){return allergyService.findById(id);}
     @PostMapping
     public Allergy save(@RequestBody Allergy allergy){return allergyService.save(allergy);}
-    @GetMapping
+    @GetMapping("/find-All")
     public List<Allergy> findAll(){return allergyService.findAll();}
 }

@@ -20,7 +20,7 @@ public class MedPersonalDetailsController {
     public MedPersonalDetails save(@RequestBody MedPersonalDetailsModel medPersonalDetailsModel){
         return medPersonalDetailsService.save(medPersonalDetailsModel);
     }
-    @GetMapping
+    @GetMapping("/find-all")
     public List<MedPersonalDetails>findAll(){return medPersonalDetailsService.findAll();}
 
 
